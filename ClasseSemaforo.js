@@ -16,6 +16,12 @@ class Semaforo{
         this.elementoBotao = elementoBotao;
         this.elementoImg = elementoImg;
     }
+    getElementoBotao(){
+        return this.elementoBotao;
+    }
+    getElementoImg(){
+        return this.elementoImg;
+    }
 
     sinalCor = {
         vermelho: "Assets/IMG/Sinal Vermelho.jpg",
@@ -24,26 +30,8 @@ class Semaforo{
     }
 
     sinal = "vermelho";
-
-    iniciarSemaforo() {
-        setInterval(() => {
-            switch (this.sinal) {
-                case "vermelho":
-                    this.elementoImg.setAttribute("src",this.sinalCor.vermelho);
-                    this.sinal= "amarelo"
-                    break;
-                case "amarelo":
-                    this.elementoImg.setAttribute("src",this.sinalCor.amarelo);
-                    this.sinal = "verde"
-                    break;
-                case "verde":
-                    this.elementoImg.setAttribute("src",this.sinalCor.verde);
-                    this.sinal = "vermelho"
-                    break;            
-                default:
-                    console.error("Cor invalida meu Jovem!!!");
-                    break;
-            }
-        }, 3000);
+    
+    desaparecerBotao(){
+        this.getElementoBotao().style.display = "none";
     }
 }
