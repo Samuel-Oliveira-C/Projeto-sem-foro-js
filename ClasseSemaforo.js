@@ -18,24 +18,27 @@ class Semaforo{
     }
 
     sinalCor = {
-        vermelho: "Assets/IMG/Sinal Vermelho",
-        amarelo: "Assets/IMG/Sinal Amarelo",
-        verde: "Assets/IMG/Sinal Verde"
+        vermelho: "Assets/IMG/Sinal Vermelho.jpg",
+        amarelo: "Assets/IMG/Sinal Amarelo.jpg",
+        verde: "Assets/IMG/Sinal Verde.jpg"
     }
 
     sinal = "vermelho";
 
     iniciarSemaforo() {
         setInterval(() => {
-            switch (this.sinalCor) {
+            switch (this.sinal) {
                 case "vermelho":
-                    this.sinalCor = "amarelo"
+                    this.elementoImg.setAttribute("src",this.sinalCor.vermelho);
+                    this.sinal= "amarelo"
                     break;
                 case "amarelo":
-                    this.sinalCor = "verde"
+                    this.elementoImg.setAttribute("src",this.sinalCor.amarelo);
+                    this.sinal = "verde"
                     break;
                 case "verde":
-                    this.sinalCor = "vermelho"
+                    this.elementoImg.setAttribute("src",this.sinalCor.verde);
+                    this.sinal = "vermelho"
                     break;            
                 default:
                     console.error("Cor invalida meu Jovem!!!");
